@@ -1,0 +1,39 @@
+---
+ip: "192.168.10.10"
+memory: 2048
+cpus: 2
+provider: virtualbox
+
+authorize: ~/.ssh/id_rsa.pub
+
+keys:
+    - ~/.ssh/id_rsa
+
+folders:
+    - map: /home/justdoit/project/reddit/back # change on your path to directory
+      to: /home/vagrant/back
+    - map: /home/justdoit/project/reddit/front # change on your path to directory
+      to: /home/vagrant/front
+
+sites:
+    - map: api-reddit.local
+      to: /home/vagrant/back/public
+      php: "7.2"
+      schedule: true
+    - map: reddit.local
+      to: /home/vagrant/front/public
+
+databases:
+    - homestead
+
+features:
+    - mariadb: true
+    - ohmyzsh: false
+    - webdriver: false
+name: reddit
+# ports:
+#     - send: 50000
+#       to: 5000
+#     - send: 7777
+#       to: 777
+#       protocol: udp
