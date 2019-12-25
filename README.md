@@ -13,6 +13,7 @@ Add in local machine into /etc/hosts(ubuntu)
 
 
 192.168.10.10 api-reddit.local
+
 192.168.10.10 reddit.local
 
 
